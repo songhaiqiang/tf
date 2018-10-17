@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.project.system.region.mapper.RegionMapper">
+    
+    <resultMap type="Region" id="RegionResult">
+        <result property="regionId"    column="region_id"    />
+        <result property="regionName"    column="region_name"    />
+        <result property="regionType"    column="region_type"    />
+        <result property="parentId"    column="parent_id"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+	
+	<sql id="selectRegionVo">
+        select region_id, region_name, region_type, parent_id, status from sys_region
+    </sql>
+	
+    <select id="selectRegionList" parameterType="Region" resultMap="RegionResult">
+        <include refid="selectRegionVo"/>
+        <where>  
+            <if test="regionId != null "> and region_id = #{regionId}</if>
+             <if test="regionName != null  and regionName != '' "> and region_name = #{regionName}</if>
+             <if test="regionType != null "> and region_type = #{regionType}</if>
+             <if test="parentId != null "> and parent_id = #{parentId}</if>
+             <if test="status != null  and status != '' "> and status = #{status}</if>
+         </where>
+    </select>
+    
+    <select id="selectRegionById" parameterType="Integer" resultMap="RegionResult">
+        <include refid="selectRegionVo"/>
+        where region_id = #{regionId}
+    </select>
+        
+    <insert id="insertRegion" parameterType="Region">
+        insert into sys_region
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="regionId != null  ">region_id,</if>
+			<if test="regionName != null  and regionName != ''  ">region_name,</if>
+			<if test="regionType != null  ">region_type,</if>
+			<if test="parentId != null  ">parent_id,</if>
+			<if test="status != null  and status != ''  ">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="regionId != null  ">#{regionId},</if>
+			<if test="regionName != null  and regionName != ''  ">#{regionName},</if>
+			<if test="regionType != null  ">#{regionType},</if>
+			<if test="parentId != null  ">#{parentId},</if>
+			<if test="status != null  and status != ''  ">#{status},</if>
+         </trim>
+    </insert>
+	 
+    <update id="updateRegion" parameterType="Region">
+        update sys_region
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="regionName != null  and regionName != ''  ">region_name = #{regionName},</if>
+            <if test="regionType != null  ">region_type = #{regionType},</if>
+            <if test="parentId != null  ">parent_id = #{parentId},</if>
+            <if test="status != null  and status != ''  ">status = #{status},</if>
+        </trim>
+        where region_id = #{regionId}
+    </update>
+
+	<delete id="deleteRegionById" parameterType="Integer">
+        delete from sys_region where region_id = #{regionId}
+    </delete>
+	
+    <delete id="deleteRegionByIds" parameterType="String">
+        delete from sys_region where region_id in 
+        <foreach item="regionId" collection="array" open="(" separator="," close=")">
+            #{regionId}
+        </foreach>
+    </delete>
+    
+</mapper>
