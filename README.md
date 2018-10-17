@@ -1,72 +1,44 @@
-## 平台简介
+一共分为三块功能：后台、代理端、客户端。
+一、	后台
+1.	角色管理
+	角色这里共分为三大角色：管理员、代理商、普通用户。管理员可以在后台查看所有角色列表。以及角色详情。支持对用户进行角色赋予。默认情况下，普通用户需要在小程序端注册。代理商需要在后台录入。
+1)	管理员
+只能在后台登录。管理员具有系统最高权限能。管理员能够录入代理商以及普通用户。并且对其他用户具有操作权限。
+2)	代理商
+只能在代理端登录。代理商具体细分为:省级代理商、市级代理商、区县代理商。代理商对下级代理商具有查看权限。
+3)	普通用户
+只能在用户端登录。在微信小程序端注册的用户。
+2.	商品管理
+1)	商品列表
+2)	商品新增
+3)	商品修改
+4)	商品删除
+3.	用户管理
+1)	普通用户：
+a)	普通用户列表
+b)	新增普通用户
+c)	修改用户
+d)	删除普通用户
+2)	代理商
+a)	代理商列表
+列表既展示代理商又展示普通用户。需要区分出代理商和普通用户
+b)	新增代理商
+c)	修改代理商
+d)	删除代理商
 
-一直想做一款后台管理系统，看了很多优秀的开源项目但是发现没有合适的。于是利用空闲休息时间开始自己写了一套后台系统。如此有了若依。她可以用于所有的Web应用程序，如网站管理后台，网站会员中心，CMS，CRM，OA。所有前端后台代码封装过后十分精简易上手，出错概率低。同时支持移动客户端访问。系统会陆续更新一些实用功能。
+二、	代理端
+1.	登录
+2.	修改密码
+3.	网点以及下级代理信息
 
-性别男，若依是女儿的名字。
+三、	客户端
+1.	登录
+2.	注册  
+注册测时候每个用户都要生成一个code这个code的格式为：TAIFJY0000001（TAIFJY+ID）
+3.	密码修改
+4.	商品列表
+5.	商品详情
+商品都有哪些属性？
 
-若依基于hplus和inspinia两套后台系统模板开发。有需要可自行到群内下载。
+6.	微信支付
 
-http://www.zi-han.net/theme/hplus
-
-http://webapplayers.com/inspinia_admin-v2.7.1
-
-> RuoYi从3.0开始，进行模块拆分，将原先的单应用转变为多模块，如需单应用，请移步 [RuoYi-fast](https://gitee.com/y_project/RuoYi-fast)  
-
-> 推荐使用阿里云部署，通用云产品代金券 ：[点我领取](https://promotion.aliyun.com/ntms/yunparter/invite.html?userCode=brki8iof)
-
-## 内置功能
-
-1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
-2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
-3.  岗位管理：配置系统用户所属担任职务。
-4.  菜单管理：配置系统菜单，操作权限，按钮权限标识等。
-5.  角色管理：角色菜单权限分配、设置角色按机构进行数据范围权限划分。
-6.  字典管理：对系统中经常使用的一些较为固定的数据进行维护。
-7.  参数管理：对系统动态配置常用参数。
-8.  通知公告：系统通知公告信息发布维护。
-9.  操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
-10. 登录日志：系统登录日志记录查询包含登录异常。
-11. 在线用户：当前系统中活跃用户状态监控。
-12. 定时任务：在线（添加、修改、删除)任务调度包含执行结果日志。
-13. 代码生成：前后端代码的生成（java、html、xml、sql)支持CRUD下载 。
-14. 系统接口：根据业务代码自动生成相关的api接口文档。
-15. 在线构建器：拖动表单元素生成相应的HTML代码。
-16. 连接池监视：监视当期系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
-## 在线体验
-> admin/admin123
-
-地址：http://www.ruoyi.vip
-
-## 演示图
-
-<table>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/25b5e333768d013d45a990c152dbe4d9d6e.jpg"/></td>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194326_GBIJ_1438828.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194443_Qyuq_1438828.png"/></td>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194501_U7gT_1438828.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194525_PApp_1438828.png"/></td>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194535_3EM0_1438828.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194612_kJ4F_1438828.png"/></td>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194623_YEXO_1438828.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://static.oschina.net/uploads/space/2018/0902/132548_ne4U_1438828.png"/></td>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194643_MsxF_1438828.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194658_40L4_1438828.png"/></td>
-        <td><img src="https://static.oschina.net/uploads/space/2018/1005/194712_2ma3_1438828.png"/></td>
-    </tr>
-</table>
-
-
-## 若依交流群
-
-QQ群： [![加入QQ群](https://img.shields.io/badge/已满-1389287-blue.svg)](https://jq.qq.com/?_wv=1027&k=5HBAaYN)  [![加入QQ群](https://img.shields.io/badge/QQ群-1679294-blue.svg)](https://jq.qq.com/?_wv=1027&k=5cHeRVW) 点击按钮入群。
